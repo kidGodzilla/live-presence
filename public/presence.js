@@ -13,13 +13,12 @@
 
     // Track mouse movement
     document.onmousemove = document.body.onclick = function (event) {
-        // console.log(event, event.detail);
         window._mouseX = event.pageX;
         window._mouseY = event.pageY;
 
         let input = document.getElementById('my_text_input');
         input.style.left = `calc(${ event.pageX }px + 28px)`;
-        input.style.top = `calc(${ event.pageY }px + 0px)`;
+        input.style.top = `calc(${ event.pageY }px - 3.5px)`;
 
         if (event.detail === 1) {
             setTimeout(() => clicking = 0, 2000);
@@ -39,9 +38,9 @@
 
     // Update position every 1s
     setInterval(() => {
-        let x = Math.max(window._mouseX - 12, 0) / document.body.clientWidth;
+        let x = window._mouseX / document.body.clientWidth;
         message = document.getElementById('my_text_input').value;
-        let y = Math.max(window._mouseY - 2, 0);
+        let y = window._mouseY;
 
         fetch(`${ BASE_URL }/presence/${ uid }/${ page }/${ x }/${ y }?clicking=${ clicking }&message=${ encodeURIComponent(message || '') }`);
     }, 1000);
@@ -77,11 +76,11 @@
     input.style.position = 'absolute';
     input.style.borderRadius = '3px';
     input.style.background = '#fff';
+    input.style.lineHeight = '1.75';
     input.style.padding = '1px 8px';
-    input.style.lineHeight = 1.75;
     input.style.fontSize = '16px';
     input.style.display = 'none';
-    input.style.zIndex = 9999999;
+    input.style.zIndex = '9999999';
     input.autocomplete = 'off';
     input.style.color = '#000';
     input.id = `my_text_input`;
@@ -95,7 +94,7 @@
                 .then(data => {
                     // console.log(data);
 
-                    for (var k in data) {
+                    for (const k in data) {
                         if (k === uid) continue;
 
                         if (!users.includes(k)) users.push(k);
@@ -109,7 +108,7 @@
                             img.style.height = `${ 121/4 }px`;
                             img.style.width = `${ 168/4 }px`;
                             img.style.position = 'absolute';
-                            img.style.zIndex = 9999999;
+                            img.style.zIndex = '9999999';
                             img.id = `u_${ k }`;
 
                             document.body.appendChild(img);
@@ -126,9 +125,9 @@
                             div.style.borderRadius = '3px';
                             div.style.background = '#fff';
                             div.style.padding = '1px 8px';
-                            div.style.lineHeight = 1.75;
+                            div.style.lineHeight = '1.75';
                             div.style.fontSize = '16px';
-                            div.style.zIndex = 9999999;
+                            div.style.zIndex = '9999999';
                             div.style.color = '#000';
                             div.id = `t_${ k }`;
 
@@ -141,11 +140,11 @@
                         if (data[k].c) img.src = `${ BASE_URL }/pointer-click.svg`;
                         else img.src = `${ BASE_URL }/pointer.svg`;
 
-                        img.style.left = `${ data[k].x * 100 }%`;
-                        img.style.top = `${ data[k].y }px`;
+                        img.style.left = `calc(${ data[k].x * 100 }% - 11px)`;
+                        img.style.top = `calc(${ data[k].y }px - 2px)`;
 
-                        div.style.left = `calc(${ data[k].x * 100 }% + 38px)`;
-                        div.style.top = `calc(${ data[k].y }px + 0px)`;
+                        div.style.left = `calc(${ data[k].x * 100 }% + 28px)`;
+                        div.style.top = `calc(${ data[k].y }px - 3px)`;
 
                         div.innerText = data[k].m || '';
                         if (data[k].m) div.style.display = 'block';
