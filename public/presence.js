@@ -28,6 +28,7 @@
     };
 
     let page = md5(location.host + location.pathname);
+    document.body.style.cursor = `url('${ BASE_URL }/pointer-me.svg'), auto`;
     document.body.style.position = 'relative';
     page = page.substring(0, 9);
     let uid = randStr();
@@ -36,6 +37,7 @@
     let typing = 0;
     let users = [];
 
+    // Update position every 1s
     setInterval(() => {
         let x = Math.max(window._mouseX - 12, 0) / document.body.clientWidth;
         message = document.getElementById('my_text_input').value;
@@ -52,10 +54,9 @@
 
             let input = document.getElementById('my_text_input');
             input.style.display = 'block';
+            event.preventDefault();
             input.value = '';
             input.focus();
-
-            event.preventDefault();
 
         } else if (event.keyCode == 27) {
             typing = 0;
@@ -75,8 +76,8 @@
     input.style.border = '2px solid #000';
     input.style.position = 'absolute';
     input.style.borderRadius = '3px';
-    input.style.display = 'none';
     input.style.padding = '4px 8px';
+    input.style.display = 'none';
     input.id = `my_text_input`;
 
     document.body.appendChild(input);
@@ -132,7 +133,7 @@
                         img.style.top = `${ data[k].y }px`;
 
                         div.style.left = `calc(${ data[k].x * 100 }% + 38px)`;
-                        div.style.top = `calc(${ data[k].y }px + 2px)`;
+                        div.style.top = `calc(${ data[k].y }px + 0px)`;
 
                         div.innerText = data[k].m || '';
                         if (data[k].m) div.style.display = 'block';
