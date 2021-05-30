@@ -72,6 +72,10 @@ if (cluster.isMaster) {
         res.json(result);
     });
 
+    app.get('/dump', (req, res) => {
+        res.json(present);
+    });
+
     app.use(express.static('public'));
     app.listen(port, function () { console.log('App listening on port', port) });
 }
