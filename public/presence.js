@@ -13,8 +13,8 @@
 
     // Track mouse movement
     document.onmousemove = document.body.onclick = function (event) {
-        window._mouseX = event.pageX;
-        window._mouseY = event.pageY;
+        mouseX = event.pageX;
+        mouseY = event.pageY;
 
         let input = document.getElementById('my_text_input');
         input.style.left = `calc(${ event.pageX }px + 28px)`;
@@ -35,14 +35,14 @@
     let clicking = 0;
     let typing = 0;
     let users = [];
+    let mouseX = 0;
+    let mouseY = 0;
 
     // Update position every 1s
     setInterval(() => {
-        let x = window._mouseX / document.body.clientWidth;
         message = document.getElementById('my_text_input').value;
-        let y = window._mouseY;
 
-        fetch(`${ BASE_URL }/presence/${ uid }/${ page }/${ x }/${ y }?clicking=${ clicking }&message=${ encodeURIComponent(message || '') }`);
+        fetch(`${ BASE_URL }/presence/${ uid }/${ page }/${ mouseX / document.body.clientWidth }/${ mouseY }?clicking=${ clicking }&message=${ encodeURIComponent(message || '') }`);
     }, 1000);
 
     // Capture keyboard input
