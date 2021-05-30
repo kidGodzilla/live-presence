@@ -80,6 +80,7 @@
     input.style.padding = '4px 8px';
     input.style.fontSize = '16px';
     input.style.display = 'none';
+    input.style.zIndex = 9999999;
     input.style.color = '#000';
     input.id = `my_text_input`;
 
@@ -106,6 +107,7 @@
                             img.style.height = `${ 121/4 }px`;
                             img.style.width = `${ 168/4 }px`;
                             img.style.position = 'absolute';
+                            img.style.zIndex = 9999999;
                             img.id = `u_${ k }`;
 
                             document.body.appendChild(img);
@@ -123,6 +125,7 @@
                             div.style.background = '#fff';
                             div.style.padding = '4px 8px';
                             div.style.fontSize = '16px';
+                            div.style.zIndex = 9999999;
                             div.style.color = '#000';
                             div.id = `t_${ k }`;
 
