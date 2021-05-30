@@ -1,4 +1,6 @@
-# live-presence
+# Live Presence
+
+Tiny project to replicate the "Live Presence" feature from [FigJam](https://www.figma.com/figjam/)
 
 ### Demo
 
