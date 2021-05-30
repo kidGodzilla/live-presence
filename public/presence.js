@@ -48,7 +48,7 @@
 
     // Capture keyboard input
     document.addEventListener('keydown', function(event) {
-        if (event.keyCode == 191) {
+        if (event.key === '/') {
             if (typing) return;
             typing = 1;
 
@@ -58,7 +58,7 @@
             input.value = '';
             input.focus();
 
-        } else if (event.keyCode == 27) {
+        } else if (event.key === 'Escape') {
             typing = 0;
 
             input.style.display = 'none';
@@ -82,6 +82,7 @@
     input.style.fontSize = '16px';
     input.style.display = 'none';
     input.style.zIndex = 9999999;
+    input.autocomplete = 'off';
     input.style.color = '#000';
     input.id = `my_text_input`;
 
