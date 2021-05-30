@@ -35,8 +35,8 @@ if (cluster.isMaster) {
     global.present = {};
 
     app.get('/presence/:id/:page/:x/:y', (req, res) => {
-        let { id, page, x, y } = req.params;
         let { clicking, message } = req.query;
+        let { id, page, x, y } = req.params;
 
         if (sizeOf(id) > 20 || sizeOf(page) > 20 || sizeOf(clicking) > 1 || sizeOf(message) > 128 || sizeOf(x) > 100 || sizeOf(y) > 100) return res.send('no');
 
