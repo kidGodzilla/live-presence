@@ -76,6 +76,7 @@
     input.style.border = '2px solid #000';
     input.style.position = 'absolute';
     input.style.borderRadius = '3px';
+    input.style.background = '#fff';
     input.style.padding = '4px 8px';
     input.style.fontSize = '16px';
     input.style.display = 'none';
@@ -119,6 +120,7 @@
                             div.style.border = '2px solid #000';
                             div.style.position = 'absolute';
                             div.style.borderRadius = '3px';
+                            div.style.background = '#fff';
                             div.style.padding = '4px 8px';
                             div.style.fontSize = '16px';
                             div.style.color = '#000';
