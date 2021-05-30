@@ -75,12 +75,12 @@
     input.style.border = '2px solid #000';
     input.style.position = 'absolute';
     input.style.borderRadius = '3px';
+    input.style.zIndex = '99999999';
     input.style.background = '#fff';
     input.style.lineHeight = '1.75';
     input.style.padding = '1px 8px';
     input.style.fontSize = '16px';
     input.style.display = 'none';
-    input.style.zIndex = '9999999';
     input.autocomplete = 'off';
     input.style.color = '#000';
     input.id = `my_text_input`;
