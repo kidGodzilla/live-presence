@@ -3,10 +3,10 @@
 
 const { corsAndBodyParser, corsOptions, isBuffer } = require('mr365-utils');
 // const syncViaFtp = require('sync-via-ftp');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const cluster = require('cluster');
 const express = require('express');
-const md5 = require('md5');
+// const md5 = require('md5');
 const port = 5000;
 const debug = 0;
 
@@ -57,7 +57,7 @@ if (cluster.isMaster) {
         if (present[page]) {
             let oneMinuteAgo = +new Date() - (5 * 1000);
 
-            for (var k in present[page]) {
+            for (const k in present[page]) {
                 if (present[page][k] && present[page][k].ts < oneMinuteAgo)
                     delete present[page][k];
             }
@@ -65,7 +65,7 @@ if (cluster.isMaster) {
 
         let result = JSON.parse(JSON.stringify(present[page] || {}));
 
-        for (var k in result) {
+        for (const k in result) {
             delete result[k].ts;
         }
 
