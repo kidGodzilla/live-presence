@@ -1,0 +1,30 @@
+{
+  "name": "live-presence",
+  "version": "0.2.7",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kidGodzilla/live-presence.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kidGodzilla/live-presence/issues"
+  },
+  "homepage": "https://github.com/kidGodzilla/live-presence#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cluster": "^0.7.7",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "md5": "^2.3.0",
+    "mr365-utils": "^0.2.17",
+    "simple-logger-api-monitor": "^0.7.15",
+    "sync-via-ftp": "^0.2.17"
+  }
+}
