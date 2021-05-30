@@ -1,14 +1,7 @@
-// Environment Variables
-// require('dotenv').config();
-
 const { corsAndBodyParser, corsOptions, isBuffer } = require('mr365-utils');
-// const syncViaFtp = require('sync-via-ftp');
-// const bodyParser = require('body-parser');
 const cluster = require('cluster');
 const express = require('express');
-// const md5 = require('md5');
 const port = 5000;
-const debug = 0;
 
 function sizeOf(s) {
     return (s + '').length;
