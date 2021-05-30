@@ -1,7 +1,7 @@
 const { corsAndBodyParser, corsOptions, isBuffer } = require('mr365-utils');
+const port = process.env.PORT || 5000;
 const cluster = require('cluster');
 const express = require('express');
-const port = 5000;
 
 function sizeOf(s) {
     return (s + '').length;
