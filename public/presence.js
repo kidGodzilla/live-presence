@@ -77,7 +77,9 @@
     input.style.position = 'absolute';
     input.style.borderRadius = '3px';
     input.style.padding = '4px 8px';
+    input.style.fontSize = '16px';
     input.style.display = 'none';
+    input.style.color = '#000';
     input.id = `my_text_input`;
 
     document.body.appendChild(input);
@@ -118,6 +120,8 @@
                             div.style.position = 'absolute';
                             div.style.borderRadius = '3px';
                             div.style.padding = '4px 8px';
+                            div.style.fontSize = '16px';
+                            div.style.color = '#000';
                             div.id = `t_${ k }`;
 
                             document.body.appendChild(div);
