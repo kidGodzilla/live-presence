@@ -78,6 +78,7 @@
     input.style.borderRadius = '3px';
     input.style.background = '#fff';
     input.style.padding = '4px 8px';
+    input.style.lineHeight = 1.75;
     input.style.fontSize = '16px';
     input.style.display = 'none';
     input.style.zIndex = 9999999;
@@ -124,6 +125,7 @@
                             div.style.borderRadius = '3px';
                             div.style.background = '#fff';
                             div.style.padding = '4px 8px';
+                            div.style.lineHeight = 1.75;
                             div.style.fontSize = '16px';
                             div.style.zIndex = 9999999;
                             div.style.color = '#000';
