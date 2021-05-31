@@ -28,18 +28,17 @@ if (cluster.isMaster) {
     global.present = {};
 
     app.get('/presence/:id/:page/:x/:y', (req, res) => {
-        let { clicking, message } = req.query;
         let { id, page, x, y } = req.params;
+        let { c, m } = req.query;
 
-        if (sizeOf(id) > 20 || sizeOf(page) > 20 || sizeOf(clicking) > 1 || sizeOf(message) > 128 || sizeOf(x) > 100 || sizeOf(y) > 100) return res.send('no');
+        // console.log(page, id, x, y, c, m);
+
+        if (sizeOf(id) > 20 || sizeOf(page) > 20 || sizeOf(c) > 1 || sizeOf(m) > 200 || sizeOf(x) > 100 || sizeOf(y) > 100) return res.send('no');
 
         if (!present[page]) present[page] = {};
         if (!present[page][id]) present[page][id] = {};
 
-        x = parseFloat(x);
-        y = parseFloat(y);
-
-        present[page][id] = { ts: +new Date(), c: parseInt(clicking), m: message, x: x, y: y };
+        present[page][id] = { ts: +new Date(), c: parseInt(c), m: m, x: parseFloat(x), y: parseFloat(y) };
 
         res.send('ok');
     });
@@ -48,7 +47,7 @@ if (cluster.isMaster) {
         let { page } = req.params;
 
         if (present[page]) {
-            let oneMinuteAgo = +new Date() - (5 * 1000);
+            let oneMinuteAgo = +new Date() - (9 * 1000);
 
             for (const k in present[page]) {
                 if (present[page][k] && present[page][k].ts < oneMinuteAgo)
