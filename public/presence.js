@@ -48,7 +48,7 @@
         // Allow to skip up to 6 times if no movement
         if (updated < 1 && updated > -7) return updated--;
 
-        let url = `${ BASE_URL }/presence/${ uid }/${ page }/${ mouseX / document.body.clientWidth }/${ mouseY }?c=${ clicking }`;
+        let url = `${ BASE_URL }/presence/${ uid }/${ page }/${ (mouseX / document.body.clientWidth).toFixed(3) }/${ mouseY }?c=${ clicking }`;
         if (message) url += `&m=${ encodeURIComponent(message || '') }`;
         updated = 0;
         fetch(url);
