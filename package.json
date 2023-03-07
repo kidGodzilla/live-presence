@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
+    "mac": "PORT=5001 node .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "git push dokku main:master"
   },
