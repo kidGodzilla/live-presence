@@ -40,19 +40,19 @@
     let mouseX = 0;
     let mouseY = 0;
 
-    // Update position every 1s
+    // Update position every 2.5s
     setInterval(() => {
         message = document.getElementById('my_text_input').value;
 
-        // Allow to skip up to 6 times if no movement
-        if (updated < 1 && updated > -7) return updated--;
+        // Allow to skip up to 4 times if no movement
+        if (updated < 1 && updated > -5) return updated--;
 
         let url = `${ BASE_URL }/presence/${ uid }/${ page }/${ (mouseX / document.body.clientWidth).toFixed(3) }/${ mouseY }?c=${ clicking }`;
         if (message) url += `&m=${ encodeURIComponent(message || '') }`;
         updated = 0;
         fetch(url);
 
-    }, 1500);
+    }, 2500);
 
     // Capture keyboard input
     document.addEventListener('keydown', function(event) {
