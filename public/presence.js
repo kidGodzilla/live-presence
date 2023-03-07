@@ -30,6 +30,7 @@
 
     let page = md5(location.host + location.pathname);
     page = page.substring(0, 9);
+    let interactive = false;
     let uid = randStr();
     let message = '';
     let clicking = 0;
@@ -51,10 +52,12 @@
         updated = 0;
         fetch(url);
 
-    }, 1000);
+    }, 1500);
 
     // Capture keyboard input
     document.addEventListener('keydown', function(event) {
+        if (!interactive) return;
+
         if (event.key === '/') {
             if (typing) return;
             typing = 1;
@@ -99,6 +102,7 @@
     function showPresence() {
         document.body.style.cursor = `url('${ BASE_URL }/pointer-me.svg'), auto`;
         document.body.style.position = 'relative';
+        interactive = true;
 
         setInterval(() => {
             fetch(`${ BASE_URL }/visitors/${ page }`)
